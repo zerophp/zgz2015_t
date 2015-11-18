@@ -5,13 +5,16 @@
  * @param string $name
  * @return string $html
  */
-function CreateFileFormInput($name)
+function FileTag($name)
 
 /**
- * Devuelve un formulario en formato HTML
- * @param unknown $array : array de controles que va a pintar el formulario
+ * Form html tag
+ * 
+ * @param string $action
+ * @param string $method[GET|POST]
+ * @param boolean $withFile
  */
-function FormTag($array)
+function FormTag($action, $method, $withFile)
 
 
 /**
@@ -34,7 +37,7 @@ function SubmitTag($type, $name, $value)
  * @return string;
  *
  */
-function createradioselect($name, $array, $selected, $type='RADIO')
+function SelectTag($name, $array, $selected, $type='RADIO')
 
 /**
  *
