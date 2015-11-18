@@ -20,7 +20,7 @@ function FormTag($action, $method, $withFile)
 /**
  * Submit | Button html form tag
  *
- * @param string $type submit | button
+ * @param string $type SUBMIT | BUTTON
  * @param string $name
  * @param string $value
  * @return string;

@@ -1,0 +1,16 @@
+{
+	"FormTag":{"action":"action.php","method":"POST","withfile":"TRUE"},
+	"Elements":[
+		{"type":"FileTag","params":{"name":"photo"}},
+		{"type":"SelectTag","params":{"name":"city","values":{"ZGZ":"Zaragoza","BCN":"Barcelona"},"selected":"ZGZ","type":"SELECT"}},
+		{"type":"SelectTag","params":{"name":"gender","values":{"M":"Mujer","H":"Hombre","O":"Otros"},"selected":"null","type":"RADIO"}},
+		{"type":"MultipleTag","params":{"type":"MULTIPLE","name":"languages","values":{"en":"Ingles","es":"Castellano"},"selected":{"en":"Ingles"}}},
+		{"type":"MultipleTag","params":{"type":"CHECKBOX","name":"pets","values":{"cat":"Gato","dog":"Perro"},"selected":"null"}},
+		{"type":"TextTag","params":{"type":"TEXT","name":"email","value":"null"}},
+		{"type":"TextTag","params":{"type":"PASSWORD","name":"password","value":"null"}},
+		{"type":"TextTag","params":{"type":"TEXT","name":"name","value":"null"}},
+		{"type":"TextTag","params":{"type":"DATE","name":"bdate","value":"null"}},
+		{"type":"TextareaTag","params":{"name":"description","content":"Escribe aquí tu drescripción"}},
+		{"type":"SubmitTag","params":{"type":"SUBMIT","name":"submit","value":"Enviar"}}
+	]
+}
