@@ -1,17 +1,22 @@
 <?php
+include ("../modules/Application/src/Application/View/Helper/Form.php");
+include ("../modules/Application/src/Application/Model/Txt/Save.php");
+$formdef = "../modules/Application/src/Application/Forms/register.json";
 
 if(isset($_GET['action']))
     $action=$_GET['action'];
 else
     $action='select';
         
+$fileName = 'user.txt';
 
+    
 switch($action)
 {
     case 'select':
-        $filename = 'user.txt';
+        
         // Leer el archivo de texto en un string
-        $users = file_get_contents($filename);
+        $users = file_get_contents($fileName);
         
         // separar por saltos de linea en una array
         $users = explode("\n", $users);
@@ -40,37 +45,18 @@ switch($action)
         }
         echo "</table>";
     break;
-    case 'insert':
-        
+    case 'insert':        
         if($_POST)
         {
-            $user = '';
-            // Recorrer el array de post elemento por elemento
-            foreach($_POST as $key => $element)
-            {
-                if(is_array($element))
-                {
-                    // Si multiple concatenar por comas
-                    $_POST[$key]=implode(',', $element);
-                }
-            }
-            $_POST['photo']=$_FILES['photo']['name'];
-            // Contacternar los elementos por |
-            $user=implode('|',$_POST)."\n";
-             
-            
-            // Crear el fichero de texto
-            // Escribir la linea al archivo de texto
-            file_put_contents('user.txt', $user, FILE_APPEND);
-            
+            $array= $_POST;
+            $array['photo']=$_FILES['photo']['name'];
+            Save($array, $fileName);
             header("Location: /ControllerUser.php?action=select");
         }
         else
-        {
-            include ("../modules/Application/src/Application/View/Helper/Form.php");
-            
-            $form = file_get_contents("../modules/Application/src/Application/Forms/register.json");
-            echo Form($form);
+        {   
+            $form = file_get_contents($formdef);
+            include('../modules/Application/views/user/insert.phtml');
         }
     break;
     case 'update':
@@ -83,7 +69,7 @@ switch($action)
                 if($_POST['submit']=='Si')
                 {
                     // Borar y saltar
-                    $filename = 'user.txt';
+                   
                     $users = file_get_contents($filename);
                     $users = explode("\n", $users);
                     unset( $users[$_POST['id']]);
@@ -96,7 +82,7 @@ switch($action)
             else 
             {
                 // Formulario si/no  
-                $filename = 'user.txt';
+     
                 $users = file_get_contents($filename);
                 $users = explode("\n", $users);
                 $user = explode("|", $users[$_GET ['id']]);

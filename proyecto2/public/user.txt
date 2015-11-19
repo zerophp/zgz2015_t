@@ -6,3 +6,4 @@ ZGZ|M|en|null|null|null||Escribe aquí tu drescripción|Enviar|Imagen 002.jpg
 BCN|H|en|bbbb|bbbb|bbbb||Escribe aquí tu drescripción|Enviar|
 7|No|
 ZGZ|M|en|ddddd|dddd|dddd||Escribe aquí tu drescripción|Enviar|Imagen 003.jpg
+BCN|O|en|xxxxx|xxx|xxx||Escribe aquí tu drescripción|Enviar|
