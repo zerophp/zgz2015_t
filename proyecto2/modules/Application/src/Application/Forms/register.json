@@ -1,5 +1,5 @@
 {
-	"FormTag":{"action":"action.php","method":"POST","withfile":"TRUE"},
+	"FormTag":{"action":"ControllerUser.php?action=insert","method":"POST","withfile":"TRUE"},
 	"Elements":[
 		{"label":"Photo","type":"FileTag","params":{"name":"photo"}},
 		{"label":"Ciudad","type":"SelectTag","params":{"name":"city","values":{"ZGZ":"Zaragoza","BCN":"Barcelona"},"selected":"ZGZ","type":"SELECT"}},
