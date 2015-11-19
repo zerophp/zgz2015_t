@@ -5,7 +5,7 @@
  * @param string $name
  * @return string $html
  */
-function FileTag($name)
+function FileTag($name){}
 
 /**
  * Form html tag
@@ -14,7 +14,7 @@ function FileTag($name)
  * @param string $method[GET|POST]
  * @param boolean $withFile
  */
-function FormTag($action, $method, $withFile)
+function FormTag($action, $method, $withFile){}
 
 
 /**
@@ -25,7 +25,7 @@ function FormTag($action, $method, $withFile)
  * @param string $value
  * @return string;
  */
-function SubmitTag($type, $name, $value)
+function SubmitTag($type, $name, $value){}
 
 /**
  * Crea un campo de tipo select o radio a partir de un array de opciones
@@ -37,7 +37,7 @@ function SubmitTag($type, $name, $value)
  * @return string;
  *
  */
-function SelectTag($name, $array, $selected, $type='RADIO')
+function SelectTag($name, $array, $selected, $type='RADIO'){}
 
 /**
  *
@@ -50,7 +50,7 @@ function SelectTag($name, $array, $selected, $type='RADIO')
 * @return string $html
 *
 */
-function MultipleTag($type, $name, $values, $selected);
+function MultipleTag($type, $name, $values, $selected){}
 
 /**
  *  TEXT|EMAIL|PASSWORD|DATE|HIDDEN html form tag
@@ -61,7 +61,7 @@ function MultipleTag($type, $name, $values, $selected);
 * @return string
 */
 
-function TextTag($type, $name, $value)
+function TextTag($type, $name, $value){}
 
 /**
  * TextArea: Recibimos un texto y devuelve un código HTML de TextArea
@@ -71,4 +71,4 @@ function TextTag($type, $name, $value)
 * @return string
 */
 
-function TextareaTag($name,$content=null);
+function TextareaTag($name,$content=null){}
