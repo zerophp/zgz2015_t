@@ -16,7 +16,7 @@ function MultipleTag($type, $name, $values, $selected){
     $sel = false;
     switch ($type){
         case "MULTIPLE":
-            $html .= "<SELECT MULTIPLE NAME=\"$name\" >";
+            $html .= "<SELECT MULTIPLE NAME=\"".$name."[]\" >";
             foreach ($values as $key => $value){
                 $sel = false;
                 foreach ($selected as $keysel => $valsel){
@@ -32,13 +32,14 @@ function MultipleTag($type, $name, $values, $selected){
         case "CHECKBOX":
             foreach ($values as $key => $value){
                 $sel = false;
-                foreach ($selected as $keysel => $valsel){
-                    if ($key == $keysel){
-                        $sel = true;
-                    };
-                }
-                if ($sel) $html .= "<INPUT TYPE=\"checkbox\" NAME=\"$name\" VALUE=\"$key\" CHECKED>$value ";
-                else $html .= "<INPUT TYPE=\"checkbox\" NAME=\"$name\" VALUE=\"$key\">$value ";
+                if($selected!="null")
+                    foreach ($selected as $keysel => $valsel){
+                        if ($key == $keysel){
+                            $sel = true;
+                        };
+                    }
+                if ($sel) $html .= "<INPUT TYPE=\"checkbox\" NAME=\"".$name."[]\" VALUE=\"$key\" CHECKED>$value ";
+                else $html .= "<INPUT TYPE=\"checkbox\" NAME=\"".$name."[]\" VALUE=\"$key\">$value ";
             }
             break;
     }

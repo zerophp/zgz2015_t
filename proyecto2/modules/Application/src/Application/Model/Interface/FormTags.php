@@ -53,9 +53,9 @@ function SelectTag($name, $array, $selected, $type='RADIO')
 function MultipleTag($type, $name, $values, $selected);
 
 /**
- *  TEXT|EMAIL|PASSWORD|DATE html form tag
+ *  TEXT|EMAIL|PASSWORD|DATE|HIDDEN html form tag
 *
-* @param string $type [TEXT|EMAIL|PASSWORD|DATE]
+* @param string $type [TEXT|EMAIL|PASSWORD|DATE|HIDDEN]
 * @param string $name
 * @param string $value
 * @return string

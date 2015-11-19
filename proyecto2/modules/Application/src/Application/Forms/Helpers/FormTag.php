@@ -7,7 +7,7 @@
  */
 
 function FormTag($accion,  $method, $withFile){
-    if ($method == GET)
+    if ($method == 'GET')
         $method = "get";
     else
         $method = "post";

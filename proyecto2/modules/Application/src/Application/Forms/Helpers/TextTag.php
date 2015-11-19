@@ -1,9 +1,9 @@
 <?php
 
 /**
-*  TEXT|EMAIL|PASSWORD|DATE html form tag
+*  TEXT|EMAIL|PASSWORD|DATE|HIDDEN html form tag
 *
-* @param string $type [TEXT|EMAIL|PASSWORD|DATE]
+* @param string $type [TEXT|EMAIL|PASSWORD|DATE|HIDDEN]
 * @param string $name
 * @param string $value
 * @return string
