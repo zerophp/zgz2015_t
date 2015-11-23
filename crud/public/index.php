@@ -1,22 +1,8 @@
 <?php
-
-// echo "<pre>";
-// print_r($_SERVER);
-// echo "</pre>";
-
-echo $_SERVER['REQUEST_URI'];
-
-
-
+$config=require('../config/config.php');
 include('../modules/Utils/src/Utils/Model/Router.php');
-$route = Router($_SERVER['REQUEST_URI']);
 
-echo "<pre>route:";
-print_r($route);
-echo "</pre>";
-
-
-
+$route = Router($_SERVER['REQUEST_URI'], $config);
 
 include('../modules/'.
         ucfirst($route['module']).

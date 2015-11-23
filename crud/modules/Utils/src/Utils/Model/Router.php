@@ -7,9 +7,9 @@
  * @param string $url
  * @return array
  */
-function Router($url)
+function Router($url, $config)
 {
-    $controllers = ['user'=>['select','insert','update','delete'],
+    $controllers = ['user'=>['index','select','insert','update','delete'],
                     'error'=>['_404'],
                     ];
     $route= array();
@@ -49,7 +49,7 @@ function Router($url)
         {
             $route['module']='application';
             $route['controller']=$url[1];
-            $route['action']='default';
+            $route['action']=$config['defaultAction'];
             $route['params']=$params;
         }
         elseif(!in_array($url[2],$controllers[$url[1]]))
@@ -65,8 +65,8 @@ function Router($url)
     elseif(isset($url[1])&& $url[1]=='')
     {
         $route['module']='application';
-        $route['controller']='default';
-        $route['action']='defualt';
+        $route['controller']=$config['defaultController'];
+        $route['action']=$config['defaultAction'];
         $route['params']=$params;
     }
     else

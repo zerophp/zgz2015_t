@@ -3,7 +3,11 @@ include ("../modules/Application/src/Application/View/Helper/Form.php");
 include ("../modules/Application/src/Application/View/Helper/FormUpdate.php");
 include ("../modules/Application/src/Application/Model/Txt/Save.php");
 include ("../modules/Application/src/Application/Model/Txt/Update.php");
+
+include ("../modules/Utils/src/Utils/Model/ValidateData.php");
+
 $formdef = "../modules/Application/src/Application/Forms/register.json";
+
 
 
         
@@ -11,6 +15,7 @@ $filename = '../data/user.txt';
     
 switch($route['action'])
 {
+    case 'index':
     case 'select':
         
         // Leer el archivo de texto en un string
@@ -24,10 +29,27 @@ switch($route['action'])
     case 'insert':        
         if($_POST)
         {
-            $array= $_POST;
-            $array['photo']=$_FILES['photo']['name'];
-            Save($array, $filename);
-            header("Location: /ControllerUser.php?action=select");
+            // Filtrar
+//             $data = FilterData($_POST);
+            // Validar 
+//             $valid = ValidateData($_POST, $formdef);
+            // if validar ok
+//                 if($valid['result'])
+//                 {
+                    // Write to repo
+                    $array= $_POST;
+                    $array['photo']=$_FILES['photo']['name'];
+                    Save($array, $filename);
+                    header("Location: /user/select");
+//                 }
+//                 else
+//                 {
+//                     echo "<pre>";
+//                     print_r($valid);
+//                     echo "</pre>";
+//                 }
+            
+            
         }
         else
         {   
@@ -41,7 +63,7 @@ switch($route['action'])
             $array= $_POST;
             $array['photo']=$_FILES['photo']['name'];
             Update($array, $filename);
-            header("Location: ./ControllerUser.php?action=select");
+            header("Location: /user/select");
         }
         else
         {             
@@ -65,7 +87,7 @@ switch($route['action'])
                     $users=implode("\n", $users);
                     file_put_contents($filename, $users);
                 }                
-                header("Location: /ControllerUser.php?action=select");
+                header("Location: /user/select");
             }
             else 
             {

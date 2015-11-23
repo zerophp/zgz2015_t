@@ -1,5 +1,5 @@
 {
-	"FormTag":{"action":"ControllerUser.php?action=insert","method":"POST","withfile":"TRUE"},
+	"FormTag":{"action":"","method":"POST","withfile":"TRUE"},
 	"Elements":[
 		{"label":"Ciudad","type":"SelectTag","params":{"name":"city","values":{"ZGZ":"Zaragoza","BCN":"Barcelona"},"selected":"ZGZ","type":"SELECT"}},
 		{"label":"Sexo","type":"SelectTag","params":{"name":"gender","values":{"M":"Mujer","H":"Hombre","O":"Otros"},"selected":"null","type":"RADIO"}},
