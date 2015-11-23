@@ -1,0 +1,2 @@
+BCN|M|en|cat|a@a.com|1234|aaa|2015-11-20|aaad|Enviar|Imagen 001.jpg
+ZGZ|H|es|dog|b@b.com|1234|bbb|2015-11-21|bbbd|Enviar|Imagen 002.jpg
