@@ -3,7 +3,7 @@ ZGZ|M|en,es|cat,dog|asdasdasd|null|asdasdasd|2015-11-19|asdasdasd|Enviar|Imagen 
 ZGZ|M|en,es|cat,dog|asdasdasd|null|asdasdasd|2015-11-19|asdasdasd|Enviar|Imagen 002.jpg
 ZGZ|M|en,es|cat,dog|asdasdasd|null|asdasdasd|2015-11-19|asdasdasd|Enviar|Imagen 002.jpg
 ZGZ|M|en|null|null|null||Escribe aquí tu drescripción|Enviar|Imagen 002.jpg
-BCN|H|en|bbbb|bbbb|bbbb||Escribe aquí tu drescripción|Enviar|
 7|No|
 ZGZ|M|en|ddddd|dddd|dddd||Escribe aquí tu drescripción|Enviar|Imagen 003.jpg
-BCN|O|en|xxxxx|xxx|xxx||Escribe aquí tu drescripción|Enviar|
+BCN|M|en|cat|a@a.com|1234|aaa|2015-11-20|aaad|Enviar|Imagen 002.jpg
+BCN|M|es|dog|b@b.com|1234|bbb|2015-11-21|bbbd|Enviar|Imagen 003.jpg
