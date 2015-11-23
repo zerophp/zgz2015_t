@@ -58,6 +58,12 @@ function Router($url)
         
             
     }
+    elseif(isset($url[1])&& $url[1]=='')
+    {
+        $route['controller']='default';
+        $route['action']='defualt';
+        $route['params']=$params;
+    }
     else
     {
         $route['controller']='error';
