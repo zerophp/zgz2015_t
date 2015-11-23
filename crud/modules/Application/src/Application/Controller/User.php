@@ -5,14 +5,11 @@ include ("../modules/Application/src/Application/Model/Txt/Save.php");
 include ("../modules/Application/src/Application/Model/Txt/Update.php");
 $formdef = "../modules/Application/src/Application/Forms/register.json";
 
-if(isset($_GET['action']))
-    $action=$_GET['action'];
-else
-    $action='select';
+
         
 $filename = '../data/user.txt';
     
-switch($action)
+switch($route['action'])
 {
     case 'select':
         
@@ -50,7 +47,7 @@ switch($action)
         {             
             $users = file_get_contents($filename);
             $users = explode("\n", $users);
-            $user = explode("|", $users[$_GET ['id']]);
+            $user = explode("|", $users[$route['params']['id']]);
             //echo $user[4];
             $form = file_get_contents($formdef);
             include('../modules/Application/views/user/update.phtml');
@@ -75,7 +72,7 @@ switch($action)
                 // Formulario si/no       
                 $users = file_get_contents($filename);
                 $users = explode("\n", $users);
-                $user = explode("|", $users[$_GET ['id']]);
+                $user = explode("|", $users[$route['params']['id']]);
                 include('../modules/Application/views/user/delete.phtml');
             }
     break;

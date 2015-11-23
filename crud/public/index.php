@@ -15,16 +15,20 @@ echo "<pre>route:";
 print_r($route);
 echo "</pre>";
 
-die;
 
-if(isset($_GET['controller']))
-    $controller=$_GET['controller'];
-    else
-        $controller='user';
 
-switch ($controller)
-{
-    case 'user':
-        include('../modules/Application/src/Application/Controller/ControllerUser.php');
-        break;
-}
+
+include('../modules/'.
+        ucfirst($route['module']).
+        '/src/'.
+        ucfirst($route['module']).
+        '/Controller/'.
+        ucfirst($route['controller']).'.php'
+    );
+
+
+
+
+
+
+

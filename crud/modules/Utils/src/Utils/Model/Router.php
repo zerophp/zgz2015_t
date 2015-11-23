@@ -15,13 +15,13 @@ function Router($url)
     $route= array();
     $url = explode('/', $url);
     
-    echo "<pre>route:";
-    print_r($url);
-    echo "</pre>";
+//     echo "<pre>route:";
+//     print_r($url);
+//     echo "</pre>";
     
     $params=array();
     $filename = $_SERVER['DOCUMENT_ROOT'].'/../modules/Application/src/Application/Controller/'.ucfirst($url[1]).'.php';
-    echo $filename;
+//     echo $filename;
     if(file_exists($filename))
     {
         // OK controller
@@ -35,22 +35,26 @@ function Router($url)
                     $params[$url[$i]]=$url[$i+1];
                 else
                 {
-                   return  array('controller'=>'error',
+                   return  array('module'=>'application',
+                                 'controller'=>'error',
                                  'action'=>'_404');
                 }
             }
+            $route['module']='application';
             $route['controller']=$url[1];
             $route['action']=$url[2];
             $route['params']=$params;
         }
         elseif(!isset($url[2]))
         {
+            $route['module']='application';
             $route['controller']=$url[1];
             $route['action']='default';
             $route['params']=$params;
         }
         elseif(!in_array($url[2],$controllers[$url[1]]))
         {
+            $route['module']='application';
             $route['controller']='error';
             $route['action']='_404';
             $route['params']=$params;
@@ -60,12 +64,14 @@ function Router($url)
     }
     elseif(isset($url[1])&& $url[1]=='')
     {
+        $route['module']='application';
         $route['controller']='default';
         $route['action']='defualt';
         $route['params']=$params;
     }
     else
     {
+        $route['module']='application';
         $route['controller']='error';
         $route['action']='_404';
         $route['params']=$params;
