@@ -6,19 +6,16 @@
 
 echo $_SERVER['REQUEST_URI'];
 
-$url = explode('/', $_SERVER['REQUEST_URI']);
 
 
-$route = Router($url);
+include('../modules/Utils/src/Utils/Model/Router.php');
+$route = Router($_SERVER['REQUEST_URI']);
 
-$route = array('controller'=>'',
-                'action'=>''
-                'params'=>array('p1'=>'v1','p2'=>'v2')
-)
-
-echo "<pre>";
-print_r($url);
+echo "<pre>route:";
+print_r($route);
 echo "</pre>";
+
+die;
 
 if(isset($_GET['controller']))
     $controller=$_GET['controller'];
