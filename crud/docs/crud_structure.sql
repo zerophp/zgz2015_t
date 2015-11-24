@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `crud`.`user` (
   `password` VARCHAR(255) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `bdate` DATETIME NOT NULL,
-  `usercol` VARCHAR(45) NULL,
   `photo` VARCHAR(255) NULL,
   `description` TEXT NULL,
   `created` TIMESTAMP NOT NULL,
