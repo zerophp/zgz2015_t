@@ -4,8 +4,6 @@ include ("../modules/Application/src/Application/View/Helper/FormUpdate.php");
 include ("../modules/Application/src/Application/Model/Txt/Save.php");
 include ("../modules/Application/src/Application/Model/Txt/Update.php");
 
-include ("../modules/Utils/src/Utils/Model/ValidateData.php");
-
 $formdef = "../modules/Application/src/Application/Forms/register.json";
 
 
@@ -29,25 +27,41 @@ switch($route['action'])
     case 'insert':        
         if($_POST)
         {
-            // Filtrar
-//             $data = FilterData($_POST);
-            // Validar 
-//             $valid = ValidateData($_POST, $formdef);
-            // if validar ok
-//                 if($valid['result'])
-//                 {
+//             echo "<pre>Post: ";
+//             print_r($_POST);
+//             echo "</pre>";
+            
+            include('../modules/Utils/src/Utils/Form/FilterData.php');
+            $formdef="../modules/Application/src/Application/Forms/register.json";
+            $data = FilterData($_POST, $formdef);
+            
+//             echo "<pre>data: ";
+//             print_r($data);
+//             echo "</pre>";
+            
+            
+            
+            $validate = ValidateData($data, $formdef);
+            
+//             echo "<pre>validate: ";
+//             print_r($validate);
+//             echo "</pre>";
+            
+//             die;
+            if($validate['result']===true)
+            {
                     // Write to repo
                     $array= $_POST;
                     $array['photo']=$_FILES['photo']['name'];
                     Save($array, $filename);
                     header("Location: /user/select");
-//                 }
-//                 else
-//                 {
-//                     echo "<pre>";
-//                     print_r($valid);
-//                     echo "</pre>";
-//                 }
+            }
+            else
+            {
+                    echo "<pre>";
+                    print_r($valid);
+                    echo "</pre>";
+            }
             
             
         }
