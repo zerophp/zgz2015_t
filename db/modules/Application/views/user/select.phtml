@@ -1,0 +1,25 @@
+<?php 
+echo "<a href=\"/user/insert\">Insert</a>";
+        echo "<table border=1>";
+        foreach ($users as $key => $user)
+        {
+            // Para cada usuario una fila
+            // Para cada elemento una columna
+            $user = explode("|", $user);
+            echo "<tr>";
+            foreach ($user as $value)
+            {
+                echo "<td>";
+                echo $value;
+                echo "</td>";
+            }
+            // Concatenar opcioens
+                echo "<td>";
+                echo "<a href=\"/user/update/id/".$key."\">update</a> | 
+                      <a href=\"/user/delete/id/".$key."\">delete</a>";
+                echo "</td>";
+            echo "</tr>";
+                    
+            
+        }
+        echo "</table>";
