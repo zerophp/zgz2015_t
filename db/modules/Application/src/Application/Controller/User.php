@@ -5,7 +5,7 @@ include ("../modules/Application/src/Application/View/Helper/FormUpdate.php");
 include ("../modules/Application/src/Application/Mapper/User/GetUsers.php");
 include ("../modules/Application/src/Application/Mapper/User/GetUser.php");
 include ("../modules/Application/src/Application/Mapper/User/DeleteUser.php");
-
+include ("../modules/Utils/src/Utils/View/RenderView.php");
 $formdef = "../modules/Application/src/Application/Forms/register.json";
 
 
@@ -18,7 +18,8 @@ switch($route['action'])
     case 'index':
     case 'select':
         $users = GetUsers($config);
-        include('../modules/Application/views/user/select.phtml');
+        $content = RenderView($route, array('users'=>$users));
+        
     break;
     case 'insert':        
         if($_POST)
@@ -83,12 +84,13 @@ switch($route['action'])
             {
                 // Formulario si/no       
                 $user = GetUser($config, $route['params']['id']);
-                include('../modules/Application/views/user/delete.phtml');
+                $content = RenderView($route, array('user'=>$user));
             }
     break;
 }
 
-
+// $content = "kaka";
+include('../modules/Application/views/layout/dashboard.phtml');
 
 
 

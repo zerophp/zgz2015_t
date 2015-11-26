@@ -1,0 +1,31 @@
+<?php 
+$users= $viewParams['users'];
+?>
+<div class="table-responsive">
+<?php 
+echo "<a href=\"/user/insert\">Insert</a>";
+        echo "<table class=\"table table-striped\" >";
+        foreach ($users as $key => $user)
+        {
+            // Para cada usuario una fila
+            // Para cada elemento una columna
+            
+            echo "<tr>";
+            foreach ($user as $value)
+            {
+                echo "<td>";
+                echo $value;
+                echo "</td>";
+            }
+            // Concatenar opcioens
+                echo "<td>";
+                echo "<a href=\"/user/update/id/".$user['iduser']."\">update</a> | 
+                      <a href=\"/user/delete/id/".$user['iduser']."\">delete</a>";
+                echo "</td>";
+            echo "</tr>";
+                    
+            
+        }
+        echo "</table>";
+        ?>
+        </div>
