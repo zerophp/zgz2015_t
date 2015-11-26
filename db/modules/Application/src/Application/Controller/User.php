@@ -1,10 +1,10 @@
 <?php
 include ("../modules/Application/src/Application/View/Helper/Form.php");
 include ("../modules/Application/src/Application/View/Helper/FormUpdate.php");
-include ("../modules/Application/src/Application/Model/Txt/Save.php");
-include ("../modules/Application/src/Application/Model/Txt/Update.php");
+
 include ("../modules/Application/src/Application/Mapper/User/GetUsers.php");
 include ("../modules/Application/src/Application/Mapper/User/GetUser.php");
+include ("../modules/Application/src/Application/Mapper/User/DeleteUser.php");
 
 $formdef = "../modules/Application/src/Application/Forms/register.json";
 
@@ -22,28 +22,13 @@ switch($route['action'])
     break;
     case 'insert':        
         if($_POST)
-        {
-//             echo "<pre>Post: ";
-//             print_r($_POST);
-//             echo "</pre>";
-            
+        {           
             include('../modules/Utils/src/Utils/Form/FilterData.php');
             $formdef="../modules/Application/src/Application/Forms/register.json";
-            $data = FilterData($_POST, $formdef);
-            
-//             echo "<pre>data: ";
-//             print_r($data);
-//             echo "</pre>";
-            
-            
+            $data = FilterData($_POST, $formdef);        
             
             $validate = ValidateData($data, $formdef);
-            
-//             echo "<pre>validate: ";
-//             print_r($validate);
-//             echo "</pre>";
-            
-//             die;
+
             if($validate['result']===true)
             {
                     // Write to repo
@@ -90,12 +75,7 @@ switch($route['action'])
             {
                 if($_POST['submit']=='Si')
                 {
-                    // Borar y saltar                   
-                    $users = file_get_contents($filename);
-                    $users = explode("\n", $users);
-                    unset( $users[$_POST['id']]);
-                    $users=implode("\n", $users);
-                    file_put_contents($filename, $users);
+                    DeleteUser($config, $_POST['id']);
                 }                
                 header("Location: /user/select");
             }

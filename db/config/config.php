@@ -12,7 +12,7 @@ $config=array('defaultController'=>'user',
                           'password'=>'1234',
                           'database'=>'crud'
               ),
-    'adapter'=>'Txt',
+    'adapter'=>'Mysql',
     'filename' => '../data/user.txt',
     
 );
