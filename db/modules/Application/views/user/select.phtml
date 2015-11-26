@@ -5,7 +5,7 @@ echo "<a href=\"/user/insert\">Insert</a>";
         {
             // Para cada usuario una fila
             // Para cada elemento una columna
-            $user = explode("|", $user);
+            
             echo "<tr>";
             foreach ($user as $value)
             {
@@ -15,8 +15,8 @@ echo "<a href=\"/user/insert\">Insert</a>";
             }
             // Concatenar opcioens
                 echo "<td>";
-                echo "<a href=\"/user/update/id/".$key."\">update</a> | 
-                      <a href=\"/user/delete/id/".$key."\">delete</a>";
+                echo "<a href=\"/user/update/id/".$user['iduser']."\">update</a> | 
+                      <a href=\"/user/delete/id/".$user['iduser']."\">delete</a>";
                 echo "</td>";
             echo "</tr>";
                     

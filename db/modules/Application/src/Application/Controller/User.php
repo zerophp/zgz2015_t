@@ -3,25 +3,21 @@ include ("../modules/Application/src/Application/View/Helper/Form.php");
 include ("../modules/Application/src/Application/View/Helper/FormUpdate.php");
 include ("../modules/Application/src/Application/Model/Txt/Save.php");
 include ("../modules/Application/src/Application/Model/Txt/Update.php");
+include ("../modules/Application/src/Application/Mapper/User/GetUsers.php");
+include ("../modules/Application/src/Application/Mapper/User/GetUser.php");
 
 $formdef = "../modules/Application/src/Application/Forms/register.json";
 
 
 
         
-$filename = '../data/user.txt';
+
     
 switch($route['action'])
 {
     case 'index':
     case 'select':
-        
-        // Leer el archivo de texto en un string
-        $users = file_get_contents($filename);
-        
-        // separar por saltos de linea en una array
-        $users = explode("\n", $users);
-        // recorrer el array de usuario
+        $users = GetUsers($config);
         include('../modules/Application/views/user/select.phtml');
     break;
     case 'insert':        
@@ -106,10 +102,17 @@ switch($route['action'])
             else 
             {
                 // Formulario si/no       
-                $users = file_get_contents($filename);
-                $users = explode("\n", $users);
-                $user = explode("|", $users[$route['params']['id']]);
+                $user = GetUser($config, $route['params']['id']);
                 include('../modules/Application/views/user/delete.phtml');
             }
     break;
 }
+
+
+
+
+
+
+
+
+

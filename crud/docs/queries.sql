@@ -30,6 +30,8 @@ GROUP BY iduser;
 INSERT INTO city(city) VALUES ('Santiago');
 INSERT INTO city(city) VALUES ('Sevilla');
 
+INSERT INTO city SET city='kaka';
+
 UPDATE city SET city='SeBilla' WHERE city='Sevilla';
 
 UPDATE city SET city='SeBilla' WHERE idcity=7;
