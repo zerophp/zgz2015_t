@@ -1,7 +1,8 @@
 <?php 
 namespace Application\Controller;
 
-use Utils;
+use Application\Config;
+
 class User
 {
     public $layout = "dashboard";
@@ -39,6 +40,14 @@ class User
             
         include ("../modules/Application/src/Application/Mapper/User/GetUsers.php");
         include ("../vendor/Utils/src/Utils/View/RenderView.php");
+        
+        $config = Config::getInstance();
+        
+        
+        echo "<pre>";
+        print_r($config);
+        echo "</pre>";
+    die;
         $users = GetUsers($config);
         $this->content = RenderView($route, array('users'=>$users));
         return $this->content;

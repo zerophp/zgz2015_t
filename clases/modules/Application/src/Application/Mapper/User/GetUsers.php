@@ -3,17 +3,19 @@
 
 function GetUsers($config)
 {
-    switch($config['adapter'])
+    switch($config->adapter)
     {
         case 'Mysql':
             include ("../modules/Application/src/Application/Model/Mysql/Connect.php");
             include ("../modules/Application/src/Application/Model/Mysql/Select.php");
             
-            $master = $config['dbmaster'];
-            $slave = $config['dbslave'];
+            
+            
+            $master = $config->dbmaster;
+            $slave = $config->dbslave;
             
             $link = Connect($master);
-            
+        
             
             $query = "SELECT * FROM user";
             $data = Select($query, $link);
