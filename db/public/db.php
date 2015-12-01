@@ -1,4 +1,18 @@
 <?php
+
+// $a = 'fact_2';
+// echo ++$a;
+
+// $a = '2nd_fact';
+// echo ++$a;
+
+// $a = 'a_fact';
+// echo ++$a;
+
+$a = 'a_fact?';
+echo ++$a;
+
+die;
 // Conect to server
 
     

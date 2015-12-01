@@ -1,0 +1,12 @@
+<?php 
+$user= $viewParams['user'];
+?>
+<ul><form action ="ControllerUser.php?action=delete" method="post"  enctype = "multipart/form-data">
+<li>Seguro que quieres borar a <?=$user['name']?>?
+</li><li>
+    <INPUT TYPE=HIDDEN NAME=id VALUE=<?=$user['iduser'];?>>
+<INPUT TYPE=SUBMIT NAME=submit VALUE=No>
+</li>
+<li>
+<INPUT TYPE=SUBMIT NAME=submit VALUE=Si>
+</li></form></ul>
