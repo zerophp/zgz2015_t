@@ -4,7 +4,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=5.5",
-        "agustincl/phpzero": "1.0.0",        
-        "socalnick/scn-social-auth": "dev-master"
+        "agustincl/phpzero": "1.0.0"       
+        
     }
 }
