@@ -1,55 +1,27 @@
 <?php 
 namespace Application\Controller;
 
-use Application\Config;
+use Utils\Model\View;
+use Application\Service\UserService;
 
 class User
 {
     public $layout = "dashboard";
     public $content;
+    private $router;
+    
+    public function __construct($router, $options)
+    {
+        $this->router = $router;      
+        $this->options = $options;
+    }
     
     public function indexAction()
-    {
-        $config=array('defaultController'=>'user',
-            'defaultAction'=>'index',
-            'dbmaster'=>array('host'=>'192.168.2.1',
-                'user'=>'php',
-                'password'=>'1234',
-                'database'=>'crud'
-            ),
-            'dbslave'=>array('host'=>'192.168.2.1',
-                'user'=>'phpread',
-                'password'=>'1234',
-                'database'=>'crud'
-            ),
-            'adapter'=>'Mysql',
-            'filename' => '../data/user.txt',
+    {   
+        $userService = new UserService();
+        $users = $userService->GetUsers($this->options);
+        $this->content = View::RenderView($this->router, array('users'=>$users));
         
-        );
-        
-        $route=array
-        (
-            'module' => 'Application',
-            'controller' => 'User',
-            'action' => 'index',
-            'params' => Array
-            (
-                )
-        
-            );
-            
-        include ("../modules/Application/src/Application/Mapper/User/GetUsers.php");
-        include ("../vendor/Utils/src/Utils/View/RenderView.php");
-        
-        $config = Config::getInstance();
-        
-        
-        echo "<pre>";
-        print_r($config);
-        echo "</pre>";
-    die;
-        $users = GetUsers($config);
-        $this->content = RenderView($route, array('users'=>$users));
         return $this->content;
     }
     

@@ -1,11 +1,9 @@
 <?php
 
 $config=array(
-    'modules'=>array(
-                'Application'
-    ),
-    'defaultController'=>'user',
-    'defaultAction'=>'index',
+//     'modules'=>array('Application'),
+    'defaultController'=>'User',
+//     'defaultAction'=>'select',
 );
 
 

@@ -1,7 +1,6 @@
 <?php
 
-$config=array('defaultController'=>'asdasdas',
-              'defaultAction'=>'index',
+$config=array(
               'dbmaster'=>array('host'=>'192.168.2.1',
                           'user'=>'php',
                           'password'=>'1234',
