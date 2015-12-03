@@ -3,6 +3,7 @@ namespace Application;
 
 use Application\Options\Options;
 use Utils\Model\Options as Option;
+use Utils\Interfaces\OptionsAwareInterface;
 
 class Module
 {
@@ -20,9 +21,23 @@ class Module
             $router['controller'];
         
         $actionname = $router['action']."Action";
-            
+          
+        /**
+         * Dependence Injection by constructor
+         * @var unknown
+         */
+        /*
         $class = new $classname($router, $this->options);
         $this->content = $class->$actionname(); 
+        $this->layout = $class->layout;
+        */
+        
+        
+        $class = new $classname($router);
+        if($class instanceof OptionsAwareInterface)
+            $class->setOptions($this->options);
+        
+        $this->content = $class->$actionname();
         $this->layout = $class->layout;
         
     }

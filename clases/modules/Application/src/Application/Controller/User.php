@@ -3,23 +3,45 @@ namespace Application\Controller;
 
 use Utils\Model\View;
 use Application\Service\UserService;
+use Utils\Interfaces\OptionsAwareInterface;
+use Utils\Traits\Options;
 
-class User
+class User implements OptionsAwareInterface
 {
     public $layout = "dashboard";
     public $content;
     private $router;
     
-    public function __construct($router, $options)
+    use Options;
+    
+    
+    
+    public function __construct($router)
     {
-        $this->router = $router;      
-        $this->options = $options;
+        $this->router = $router;     
     }
     
     public function indexAction()
     {   
         $userService = new UserService();
         $users = $userService->GetUsers($this->options);
+        
+        $data = json_encode($users);
+        return $data;
+        
+        die;
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+        
+        /** API */
+        
+        $users = json_decode($data);
+        
+        echo "<pre>";
+        print_r($users);
+        echo "</pre>";
+        
         $this->content = View::RenderView($this->router, array('users'=>$users));
         
         return $this->content;
